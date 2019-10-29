@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<!--[if IE 9]>         <html class="ie9 no-focus" lang="en"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-focus" lang="en"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+
+  <title>Global Admin Dashboard</title>
+
+  <meta name="description" content="OneUI - Admin Dashboard Template & UI Framework created by pixelcave and published on Themeforest">
+  <meta name="author" content="pixelcave">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0">
+
+  <!-- Icons -->
+  <!-- The following icons can be replaced with your own, they are used by desktop and mobile browsers -->
+  <link rel="shortcut icon" href="../../assets/img/favicons/favicon.png">
+
+  <link rel="icon" type="image/png" href="../../assets/img/favicons/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="../../assets/img/favicons/favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="../../assets/img/favicons/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="../../assets/img/favicons/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="../../assets/img/favicons/favicon-192x192.png" sizes="192x192">
+
+  <link rel="apple-touch-icon" sizes="57x57" href="../../assets/img/favicons/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="../../assets/img/favicons/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="../../assets/img/favicons/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="../../assets/img/favicons/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="../../assets/img/favicons/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="../../assets/img/favicons/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="../../assets/img/favicons/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="../../assets/img/favicons/apple-touch-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicons/apple-touch-icon-180x180.png">
+  <!-- END Icons -->
+
+  <!-- Web fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400italic,600,700%7COpen+Sans:300,400,400italic,600,700">
+
+  <!-- Bootstrap and OneUI CSS framework -->
+  <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+  <link rel="stylesheet" id="css-main" href="../../assets/css/oneui.min.css">
+</head>
+<body>
+<!-- Page Container -->
+<!--
+    Available Classes:
+
+    'enable-cookies'             Remembers active color theme between pages (when set through color theme list)
+
+    'sidebar-l'                  Left Sidebar and right Side Overlay
+    'sidebar-r'                  Right Sidebar and left Side Overlay
+    'sidebar-mini'               Mini hoverable Sidebar (> 991px)
+    'sidebar-o'                  Visible Sidebar by default (> 991px)
+    'sidebar-o-xs'               Visible Sidebar by default (< 992px)
+
+    'side-overlay-hover'         Hoverable Side Overlay (> 991px)
+    'side-overlay-o'             Visible Side Overlay by default (> 991px)
+
+    'side-scroll'                Enables custom scrolling on Sidebar and Side Overlay instead of native scrolling (> 991px)
+
+    'header-navbar-fixed'        Enables fixed header
+-->
+<div id="page-container" class="sidebar-l side-scroll header-navbar-fixed">
+  <!-- Side Overlay-->
+  <header id="header-navbar" class="content-mini content-mini-full">
+    <!-- Header Navigation Right -->
+    <ul class="nav-header pull-right">
+      <li ngbDropdown  class="nav-item dropdown">
+      <div class="btn-group">
+        <button type="button" ngbDropdownToggle class="btn btn-default btn-image dropdown-toggle" id="navbarDropdownButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img src="../../assets/img/avatars/avatar10.jpg" alt="Avatar">
+          <span class="caret"></span>
+        </button>
+        <div ngbDropdownMenu  class="dropdown-menu" aria-labelledby="navbarDropdownMenuButton">
+          <ul>
+            <li class="dropdown-header">Profile</li>
+            <li>
+              <a tabindex="-1" href="base_pages_profile.html">
+                <i class="si si-user pull-right"></i>
+                <span class="badge badge-success pull-right">1</span>Profile
+              </a>
+            </li>
+            <li>
+              <a tabindex="-1" href="javascript:void(0)">
+                <i class="si si-settings pull-right"></i>Settings
+              </a>
+            </li>
+            <li class="divider"></li>
+            <li class="dropdown-header">Actions</li>
+            <li>
+              <a tabindex="-1" routerLink="/loginpage" routerLinkActive="active">
+                <i class="si si-logout pull-right"></i>Log out
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </li>
+    </ul>
+  </header>
+
+  <aside id="side-overlay">
+    <!-- Side Overlay Scroll Container -->
+    <div id="side-overlay-scroll">
+      <!-- Side Header -->
+      <div class="side-header side-content">
+        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+        <button class="btn btn-default pull-right" type="button" data-toggle="layout" data-action="side_overlay_close">
+          <i class="fa fa-times"></i>
+        </button>
+        <span class="font-w600 push-10-l">Admin</span>
+      </div>
+      <!-- END Side Header -->
+
+      <!-- Side Content -->
+      <div class="side-content remove-padding-t">
+        <!-- Block -->
+        <div class="block pull-r-l">
+          <div class="block-header bg-gray-lighter">
+            <ul class="block-options">
+              <li>
+                <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+              </li>
+              <li>
+                <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+              </li>
+            </ul>
+            <h3 class="block-title"><a routerLink="/loginpage" routerLinkActive="active">Logout</a></h3>
+          </div>
+
+        </div>
+        <!-- END Block -->
+      </div>
+      <!-- END Side Content -->
+    </div>
+    <!-- END Side Overlay Scroll Container -->
+  </aside>
+  <!-- END Side Overlay -->
+
+  <!-- Sidebar -->
+ <!-- <nav id="sidebar">
+
+    <div id="sidebar-scroll">
+      <div class="sidebar-content">
+        <div class="side-content side-content-full">
+          <ul class="nav-main">
+            <li>
+              <a class="active" href="#"><i class="si si-speedometer"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+            </li>
+            <li class="nav-main-heading"><span class="sidebar-mini-hide">Header</span></li>
+            <li>
+              <a (click)="generateOrg()">Organization</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav> -->
+  <!-- END Sidebar -->
+
+  <!-- Header -->
+  <header  class="content-mini content-mini-full">
+    <!-- Header Navigation Right -->
+    <ul class="nav-header pull-right">
+      <li>
+        <!-- Layout API, functionality initialized in App() -> uiLayoutApi() -->
+        <button class="btn btn-default" data-toggle="layout" data-action="side_overlay_toggle" type="button">
+          <i class="fa fa-tasks"></i>
+        </button>
+      </li>
+    </ul>
+    <!-- END Header Navigation Right -->
+
+    <!-- END Header Navigation Left -->
+  </header>
+  <!-- END Header -->
+
+  <!-- Main Container -->
+  <main id="main-container">
+    <!-- Page Header -->
+    <div class="content bg-gray-lighter">
+      <div class="row items-push">
+        <div class="col-sm-7">
+          <h1 class="page-heading">
+            Global Admin
+          </h1>
+        </div>
+      </div>
+    </div>
+    <!-- END Page Header -->
+    <!-- Page Content -->
+    <div class="content" id="block1">
+      <!-- My Block -->
+      <div class="block">
+        <div class="block-header">
+          <ul class="block-options">
+            <li>
+              <button type="button"><i class="si si-settings"></i></button>
+            </li>
+            <li>
+              <button type="button" data-toggle="block-option" data-action="fullscreen_toggle"></button>
+            </li>
+            <li>
+              <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
+            </li>
+            <li>
+              <button type="button" data-toggle="block-option" data-action="content_toggle"></button>
+            </li>
+            <li>
+              <button type="button" data-toggle="block-option" data-action="close"><i class="si si-close"></i></button>
+            </li>
+          </ul>
+          <h3 class="block-title">My Block</h3>
+        </div>
+        <div class="block-content">
+          <p>Global Admin has following access -</p>
+          <h5>1. View Organization</h5>
+          <h5>2. Add Organization</h5>
+          <h5>3. Modify Organization</h5>
+          <h5>4. Delete Organization</h5>
+        </div>
+      </div>
+      <!-- END My Block -->
+    </div>
+
+    <div class="content" id="block2">
+      <!-- My Block -->
+      <div class="block">
+        <div class="block-header">
+          <h3 class="block-title">Organization</h3>
+        </div>
+        <div class="block-content">
+          <a (click)="viewOrg()">View</a>&nbsp;
+          <a (click)="addOrg()">Add</a>&nbsp;
+          <a (click)="modifyOrg()">Modify</a>&nbsp;
+          <a (click)="deleteOrg()">Delete</a><br><br>
+        </div>
+      </div>
+      <!-- END My Block -->
+    </div>
+
+    <div class="content" id="block3">
+
+    </div>
+
+    <div class="content" id="block4">
+      <!--<div class="block">
+          <div class="block-header">
+              <h3 class="block-title">Professor</h3>
+          </div>
+          <div class="block-content">
+              <a onclick="viewProf()">View</a>&nbsp;
+              <a onclick="addProf()">Add</a>&nbsp;
+              <a onclick="modifyProf()">Modify</a>&nbsp;
+              <a onclick="deleteProf()">Delete</a><br><br>
+          </div>
+      </div>-->
+    </div>
+
+    <div class="content" id="block5">
+      <!--<div class="block">
+          <div class="block-header">
+              <h3 class="block-title">Questions</h3>
+          </div>
+          <div class="block-content">
+              <a onclick="viewQuest()">View</a>&nbsp;
+              <a onclick="addQuest()">Add</a>&nbsp;
+              <a onclick="modifyQuest()">Modify</a>&nbsp;
+              <a onclick="deleteQuest()">Delete</a><br><br>
+          </div>
+      </div>-->
+    </div>
+    <div class="content" id="block6" style="display: none;">
+      <!-- My Block Organization-->
+      <div class="block" id="orgList" style="display: none;">
+        <div class="block-content">
+          <label>Organization Name :&nbsp;
+          <select name="orgName" [(ngModel)]="orgName">
+            <option value="">--Select--</option>
+            <option value="University of Missouri-Kansas City">UMKC</option>
+            <option value="Kansas State University">KSU</option>
+            <option value="Emporia State University">ESU</option>
+          </select></label><br><br>
+          <label>Address : </label>
+          <input type="textarea" name="orgAdd" [(ngModel)]="orgAdd" disabled/><br><br>
+          <label>Email id : </label>
+          <input type="text" name="orgEmail" [(ngModel)]="orgEmail" disabled/><br><br>
+          <label>Contact No : </label>
+          <input type="text" name="orgPhone" [(ngModel)]="orgPhone" disabled/><br><br><br><br>
+        </div>
+      </div>
+      <div class="block" id="orgAdd" style="display: none;">
+        <div class="block-content">
+          <label>Organization Name :</label>&nbsp;
+          <input type="text" name="orgName" [(ngModel)]="orgName"/><br><br>
+          <label>Address : </label>
+          <input type="textarea" name="orgAdd" [(ngModel)]="orgAdd"/><br><br>
+          <label>Email id : </label>
+          <input type="text" name="orgEmail" [(ngModel)]="orgEmail"/><br><br>
+          <label>Contact No : </label>
+          <input type="text" name="orgPhone" [(ngModel)]="orgPhone"/><br><br>
+          <input type="button" name="Add" value="Add"><br><br><br><br>
+        </div>
+      </div>
+      <div class="block" id="orgModify" style="display: none;">
+        <div class="block-content">
+          <label>Organization Name :</label>&nbsp;
+          <select name="orgName" [(ngModel)]="orgName">
+            <option value="">--Select--</option>
+            <option value="University of Missouri-Kansas City">UMKC</option>
+            <option value="Kansas State University">KSU</option>
+            <option value="Emporia State University">ESU</option>
+          </select><br><br>
+          <label>Address : </label>
+          <input type="textarea" name="orgAdd" [(ngModel)]="orgAdd"/><br><br>
+          <label>Email id : </label>
+          <input type="text" name="orgEmail" [(ngModel)]="orgEmail"/><br><br>
+          <label>Contact No : </label>
+          <input type="text" name="orgPhone" [(ngModel)]="orgPhone"/><br><br>
+          <input type="button" name="Update" value="Update"><br><br><br><br>
+        </div>
+      </div>
+      <div class="block" id="orgDelete" style="display: none;">
+        <div class="block-content">
+          <label>Organization Name :</label>&nbsp;
+          <select name="orgName" [(ngModel)]="orgName">
+            <option value="">--Select--</option>
+            <option value="University of Missouri-Kansas City">UMKC</option>
+            <option value="Kansas State University">KSU</option>
+            <option value="Emporia State University">ESU</option>
+          </select><br><br>
+          <input type="button" name="Delete" value="Delete"><br><br><br><br>
+        </div>
+      </div>
+      <!-- END My Block - Organization -->
+
+      <!-- My Block Professor-->
+      <!--<div class="block" id="profList" style="display: none;">
+          <div class="block-content">
+              <label>Professor Name :</label>&nbsp;
+              <select name="profName">
+                  <option value="">--Select--</option>
+                  <option value="Alice">Alice</option>
+                  <option value="John">John</option>
+                  <option value="Mercy">Mercy</option>
+              </select><br><br>
+              <label>Email id : </label>
+              <input type="text" name="profEmail" disabled><br><br>
+              <label>Password : </label>
+              <input type="password" name="profPass" disabled><br><br>
+              <label>Contact No : </label>
+              <input type="text" name="profPhone" disabled><br><br>
+          </div>
+      </div>
+      <div class="block" id="profAdd" style="display: none;">
+          <div class="block-content">
+              <label>Professor Name :</label>&nbsp;
+              <input type="text" name="profName"><br><br>
+              <label>Email id : </label>
+              <input type="text" name="profEmail"><br><br>
+              <label>Password : </label>
+              <input type="password" name="profPass" value="12345"><br><br>
+              <label>Contact No : </label>
+              <input type="text" name="profPhone"><br><br>
+              <input type="button" name="Add" value="Add"><br><br><br><br>
+          </div>
+      </div>
+      <div class="block" id="profModify" style="display: none;">
+          <div class="block-content">
+              <label>Professor Name :</label>&nbsp;
+              <select name="profName">
+                  <option value="">--Select--</option>
+                  <option value="Alice">Alice</option>
+                  <option value="John">John</option>
+                  <option value="Mercy">Mercy</option>
+              </select><br><br>
+              <label>Email id : </label>
+              <input type="text" name="profEmail"><br><br>
+              <label>Password : </label>
+              <input type="password" name="profPass"><br><br>
+              <label>Contact No : </label>
+              <input type="text" name="profPhone"><br><br>
+              <input type="button" name="Update" value="Update"><br><br><br><br>
+          </div>
+      </div>
+      <div class="block" id="profDelete" style="display: none;">
+          <div class="block-content">
+              <label>Professor Name :</label>&nbsp;
+              <select name="profName">
+                  <option value="">--Select--</option>
+                  <option value="Alice">Alice</option>
+                  <option value="John">John</option>
+                  <option value="Mercy">Mercy</option>
+              </select><br><br>
+              <input type="button" name="Delete" value="Delete"><br><br><br><br>
+          </div>
+      </div>-->
+      <!-- END My Block - Professor -->
+      <!-- My Block Organization - Questions-->
+      <!--<div class="block" id="questList" style="display: none;">
+          <div class="block-content">
+              <label>Question Set :</label>&nbsp;
+              <select name="majorName">
+                  <option value="">--Select--</option>
+                  <option value="Set 1">Set 1</option>
+                  <option value="Set 2">Set 2</option>
+                  <option value="Set 3">Set 3</option>
+              </select><br><br>
+              <label>Question List :</label>&nbsp;
+              <select name="questName">
+                  <option value="">--Select--</option>
+                  <option value="abc">abc</option>
+                  <option value="pqr">pqr</option>
+                  <option value="xyz">xyz</option>
+              </select><br><br><br><br>
+          </div>
+      </div>
+      <div class="block" id="questAdd" style="display: none;">
+          <div class="block-content">
+              <label>Question Set :</label>&nbsp;
+              <select name="majorName">
+                  <option value="">--Select--</option>
+                  <option value="Set 1">Set 1</option>
+                  <option value="Set 2">Set 2</option>
+                  <option value="Set 3">Set 3</option>
+              </select><br><br>
+              <label>Question</label><br><br>&nbsp;
+              <textarea name="question"></textarea><br><br>
+              <input type="button" name="Add" value="Add"><br><br><br><br>
+          </div>
+      </div>
+      <div class="block" id="questModify" style="display: none;">
+          <div class="block-content">
+              <label>Question Set :</label>&nbsp;
+              <select name="majorName">
+                  <option value="">--Select--</option>
+                  <option value="Set 1">Set 1</option>
+                  <option value="Set 2">Set 2</option>
+                  <option value="Set 3">Set 3</option>
+              </select><br><br>
+              <label>Question List :</label>&nbsp;
+              <select name="questName">
+                  <option value="">--Select--</option>
+                  <option value="abc">abc</option>
+                  <option value="pqr">pqr</option>
+                  <option value="xyz">xyz</option>
+              </select><br><br>
+              <input type="textarea" name="updateQuest"><br><br>
+              <input type="button" name="Update" value="Update"><br><br><br><br>
+          </div>
+      </div>
+      <div class="block" id="questDelete" style="display: none;">
+          <div class="block-content">
+              <label>Question Set :</label>&nbsp;
+              <select name="majorName">
+                  <option value="">--Select--</option>
+                  <option value="Set 1">Set 1</option>
+                  <option value="Set 2">Set 2</option>
+                  <option value="Set 3">Set 3</option>
+              </select><br><br>
+              <label>Question List :</label>&nbsp;
+              <select name="questName">
+                  <option value="">--Select--</option>
+                  <option value="abc">abc</option>
+                  <option value="pqr">pqr</option>
+                  <option value="xyz">xyz</option>
+              </select><br><br>
+              <input type="button" name="Delete" value="Delete"><br><br><br><br>
+          </div>
+      </div>-->
+      <!-- END My Block - Questions -->
+    </div>
+    <!-- END Page Content -->
+  </main>
+  <!-- END Main Container -->
+</div>
+<!-- END Page Container -->
+<!-- OneUI Core JS: jQuery, Bootstrap, slimScroll, scrollLock, Appear, CountTo, Placeholder, Cookie and App.js -->
+<script src="globadmin.component.ts"></script>
+<script src="../../assets/js/oneui.min.js"></script>
+
+
+</body>
+</html>
